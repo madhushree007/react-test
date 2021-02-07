@@ -1,4 +1,4 @@
-# Card Game
+# React test
 
 ## What is it
 
