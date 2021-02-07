@@ -4,7 +4,6 @@ import styles from './Pages.module.scss';
 
 export default function Pages() {
   const query = usePages();
-  console.log(query);
 
   // While data is loading
   if (query.isLoading) {
@@ -29,7 +28,10 @@ export default function Pages() {
           query.data.data.pages.map((page) => (
             <li key={page.id}>
               <div>
-                <Link to={`/pages/${page.id}`}>{page.name}</Link>
+                <Link to={`/pages/${page.id}`}>
+                  {page.name} <span>- {page.type}</span>
+                </Link>
+                <p>{page.published ? 'published' : 'not published'}</p>
               </div>
               <div>
                 <Link to={`/pages/${page.id}`}>Number of stages ({page.stagesCount})</Link>
